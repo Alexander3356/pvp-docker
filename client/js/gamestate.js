@@ -37,8 +37,8 @@ function GameState(master) {
     function askResize() { doResize=10; }
 
     function resize() {
-		var screenWidth=document.body.clientWidth;
-		var screenHeight=document.body.clientHeight;
+		var screenWidth=document.body.offsetWidth;
+		var screenHeight=document.body.offsetHeight;
 
 		var ratio=QMATH.min(
 			QMATH.floor(screenWidth/SCREEN_WIDTH*10)/10,

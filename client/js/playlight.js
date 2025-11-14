@@ -39,6 +39,11 @@ let PLAYLIGHT={
                         enabled: true
                     }
                 });
+                const resizeObserver = new ResizeObserver((entries) => {
+                    if (GAMESTATE)
+                        GAMESTATE.resize();
+                });
+                resizeObserver.observe(document.body);
             } catch (error) {
                 console.error("Error loading the Playlight SDK:", error);
             }
