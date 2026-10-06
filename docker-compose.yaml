@@ -1,0 +1,20 @@
+services:
+  app:
+    image: node:22-alpine
+    container_name: pvp-dev
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - .:/workspace
+      - pvp_node_modules:/workspace/server-lan/node_modules
+
+    working_dir: /workspace/server-lan
+
+    command: sleep infinity
+
+volumes:
+  pvp_node_modules:
+
+  
