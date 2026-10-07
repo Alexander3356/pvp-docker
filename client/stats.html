@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PvP Stats</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            padding: 40px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #444;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>PvP Player Stats</h1>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>Player</th>
+        <th>Room joins</th>
+        <th>Last room</th>
+        <th>Last seen</th>
+    </tr>
+    </thead>
+
+    <tbody id="stats"></tbody>
+
+</table>
+
+<script>
+
+fetch("/api/stats")
+    .then(response => response.json())
+    .then(players => {
+
+        const table = document.getElementById("stats");
+
+        players.forEach(player => {
+
+            table.innerHTML += `
+                <tr>
+                    <td>${player.nickname}</td>
+                    <td>${player.joins}</td>
+                    <td>${player.last_room}</td>
+                    <td>${player.last_seen}</td>
+                </tr>
+            `;
+
+        });
+
+    });
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.git
+.gitignore
+
+node_modules
+server-lan/node_modules
+
+.env
+
+README.md
+docs
+
+*.log
